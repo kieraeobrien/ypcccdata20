@@ -1,0 +1,39 @@
+---
+title: "ypcccdata20"
+author: "Kiera O'Brien"
+date: "7/1/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(tidycensus)
+library(readr)
+library(ggplot2)
+library(gt)
+
+```
+
+```{r data explore, include = F}
+
+ypccc <- read_csv("PartisanMapData_20190218.01.csv")
+View(ypccc)
+
+NatRs <- ypccc %>%
+  filter(Group == "Rep") %>%
+  filter(GeoType == "National")
+
+NatDs <- ypccc %>%
+  filter(Group == "Dem") %>%
+  filter(GeoType == "National")
+```
+
+
+```{r plot 1, echo = F}
+
+ggplot(ypccc)
+
+```
+
